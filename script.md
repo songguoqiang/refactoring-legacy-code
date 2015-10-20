@@ -4,3 +4,14 @@
 * Exploratives Refactoring
 Identifizieren von Dingen die ich bereinigen kann, ohne ein konkrtes Ziel ausser sauberem (testbaren) Code
 * Mikado Methode
+  - players.add(new Player) rückgängig machen und erst toString implementieren
+* Use the Compiler Luke
+  - remove places -> extract method currentPlayersPlace
+  - add places to player
+  - extract moveBy
+  - replcace places
+  - remove places
+  - move stuff to player
+  - clean up 
+* --- cleanup questions ---
+  - create enum

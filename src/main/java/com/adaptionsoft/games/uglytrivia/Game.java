@@ -5,7 +5,6 @@ import java.util.LinkedList;
 
 public class Game {
     ArrayList<Player> players = new ArrayList<>();
-    int[] places = new int[6];
     int[] purses = new int[6];
     boolean[] inPenaltyBox = new boolean[6];
 
@@ -43,7 +42,6 @@ public class Game {
 
 
         players.add(new Player(playerName));
-        places[howManyPlayers()] = 0;
         purses[howManyPlayers()] = 0;
         inPenaltyBox[howManyPlayers()] = false;
 
@@ -65,12 +63,10 @@ public class Game {
                 isGettingOutOfPenaltyBox = true;
 
                 System.out.println(players.get(currentPlayer) + " is getting out of the penalty box");
-                places[currentPlayer] = places[currentPlayer] + roll;
-                if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
-
+                currentPlayer().advance(roll);
                 System.out.println(players.get(currentPlayer)
                         + "'s new location is "
-                        + places[currentPlayer]);
+                        + currentPlayer().place());
                 System.out.println("The category is " + currentCategory());
                 askQuestion();
             } else {
@@ -80,12 +76,10 @@ public class Game {
 
         } else {
 
-            places[currentPlayer] = places[currentPlayer] + roll;
-            if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
-
+            currentPlayer().advance(roll);
             System.out.println(players.get(currentPlayer)
                     + "'s new location is "
-                    + places[currentPlayer]);
+                    + currentPlayer().place());
             System.out.println("The category is " + currentCategory());
             askQuestion();
         }
@@ -105,15 +99,15 @@ public class Game {
 
 
     private String currentCategory() {
-        if (places[currentPlayer] == 0) return "Pop";
-        if (places[currentPlayer] == 4) return "Pop";
-        if (places[currentPlayer] == 8) return "Pop";
-        if (places[currentPlayer] == 1) return "Science";
-        if (places[currentPlayer] == 5) return "Science";
-        if (places[currentPlayer] == 9) return "Science";
-        if (places[currentPlayer] == 2) return "Sports";
-        if (places[currentPlayer] == 6) return "Sports";
-        if (places[currentPlayer] == 10) return "Sports";
+        if (currentPlayer().place() == 0) return "Pop";
+        if (currentPlayer().place() == 4) return "Pop";
+        if (currentPlayer().place() == 8) return "Pop";
+        if (currentPlayer().place() == 1) return "Science";
+        if (currentPlayer().place() == 5) return "Science";
+        if (currentPlayer().place() == 9) return "Science";
+        if (currentPlayer().place() == 2) return "Sports";
+        if (currentPlayer().place() == 6) return "Sports";
+        if (currentPlayer().place() == 10) return "Sports";
         return "Rock";
     }
 

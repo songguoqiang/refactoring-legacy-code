@@ -16,4 +16,9 @@ public class Player {
     public int place() {
         return place;
     }
+
+    public void advance(int roll) {
+        place += roll;
+        place %= 12;
+    }
 }

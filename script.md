@@ -18,3 +18,6 @@ Identifizieren von Dingen die ich bereinigen kann, ohne ein konkrtes Ziel ausser
   - replace Strings with enum
   
 * writing test for complex methods
+
+
+* After players and places move to tests for complex methods

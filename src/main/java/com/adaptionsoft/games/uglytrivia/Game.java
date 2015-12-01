@@ -17,7 +17,8 @@ public class Game {
     boolean isGettingOutOfPenaltyBox;
 
 
-    private Player currentPlayer() {
+    // only for Tests from outside the
+    Player currentPlayer() {
         return players.get(currentPlayer);
     }
 
@@ -55,14 +56,13 @@ public class Game {
     }
 
     public void roll(int roll) {
-        System.out.println(players.get(currentPlayer) + " is the current player");
-        System.out.println("They have rolled a " + roll);
+        logRoll(roll);
 
         if (inPenaltyBox[currentPlayer]) {
             if (roll % 2 != 0) {
                 isGettingOutOfPenaltyBox = true;
 
-                System.out.println(players.get(currentPlayer) + " is getting out of the penalty box");
+                logInPenaltyBox();
                 currentPlayer().advance(roll);
                 System.out.println(players.get(currentPlayer)
                         + "'s new location is "
@@ -84,6 +84,15 @@ public class Game {
             askQuestion();
         }
 
+    }
+
+    void logInPenaltyBox() {
+        System.out.println(players.get(currentPlayer) + " is getting out of the penalty box");
+    }
+
+    void logRoll(int roll) {
+        System.out.println(players.get(currentPlayer) + " is the current player");
+        System.out.println("They have rolled a " + roll);
     }
 
     private void askQuestion() {

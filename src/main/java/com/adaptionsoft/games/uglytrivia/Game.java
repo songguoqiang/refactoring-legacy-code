@@ -2,6 +2,7 @@ package com.adaptionsoft.games.uglytrivia;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Game {
   public static final String POP = "Pop";
@@ -13,20 +14,20 @@ public class Game {
   int[] purses  = new int[6];
   boolean[] inPenaltyBox  = new boolean[6];
 
-  LinkedList popQuestions = new LinkedList();
-  LinkedList scienceQuestions = new LinkedList();
-  LinkedList sportsQuestions = new LinkedList();
-  LinkedList rockQuestions = new LinkedList();
+  List popQuestions = new LinkedList();
+  List scienceQuestions = new LinkedList();
+  List sportsQuestions = new LinkedList();
+  List rockQuestions = new LinkedList();
 
   int currentPlayer = 0;
   boolean isGettingOutOfPenaltyBox;
 
   public Game() {
     for (int i = 0; i < 50; i++) {
-      popQuestions.addLast("Pop Question " + i);
-      scienceQuestions.addLast("Science Question " + i);
-      sportsQuestions.addLast("Sports Question " + i);
-      rockQuestions.addLast("Rock Question " + i);
+      popQuestions.add("Pop Question " + i);
+      scienceQuestions.add("Science Question " + i);
+      sportsQuestions.add("Sports Question " + i);
+      rockQuestions.add("Rock Question " + i);
     }
   }
 
@@ -81,13 +82,13 @@ public class Game {
 
   private void askQuestion() {
     if (currentCategory() == POP)
-      System.out.println(popQuestions.removeFirst());
+      System.out.println(popQuestions.remove(0));
     if (currentCategory() == SCIENCE)
-      System.out.println(scienceQuestions.removeFirst());
+      System.out.println(scienceQuestions.remove(0));
     if (currentCategory() == SPORTS)
-      System.out.println(sportsQuestions.removeFirst());
+      System.out.println(sportsQuestions.remove(0));
     if (currentCategory() == ROCK)
-      System.out.println(rockQuestions.removeFirst());
+      System.out.println(rockQuestions.remove(0));
   }
 
 

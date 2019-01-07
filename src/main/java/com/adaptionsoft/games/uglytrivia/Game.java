@@ -24,27 +24,23 @@ public class Game {
   public Game() {
     for (int i = 0; i < 50; i++) {
       popQuestions.addLast("Pop Question " + i);
-      scienceQuestions.addLast(("Science Question " + i));
-      sportsQuestions.addLast(("Sports Question " + i));
+      scienceQuestions.addLast("Science Question " + i);
+      sportsQuestions.addLast("Sports Question " + i);
       rockQuestions.addLast("Rock Question " + i);
     }
   }
 
   public boolean add(String playerName) {
-
-
     players.add(playerName);
-    places[howManyPlayers()] = 0;
-    purses[howManyPlayers()] = 0;
-    inPenaltyBox[howManyPlayers()] = false;
+    int numberOfPlayers = players.size();
+
+    places[numberOfPlayers] = 0;
+    purses[numberOfPlayers] = 0;
+    inPenaltyBox[numberOfPlayers] = false;
 
     System.out.println(playerName + " was added");
-    System.out.println("They are player number " + players.size());
+    System.out.println("They are player number " + numberOfPlayers);
     return true;
-  }
-
-  public int howManyPlayers() {
-    return players.size();
   }
 
   public void roll(int roll) {

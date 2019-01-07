@@ -9,6 +9,7 @@ public class Game {
   public static final String SCIENCE = "Science";
   public static final String SPORTS = "Sports";
   public static final String ROCK = "Rock";
+  public static final int BOARD_SIZE = 12;
   ArrayList players = new ArrayList();
   int[] places = new int[6];
   int[] purses  = new int[6];
@@ -68,8 +69,7 @@ public class Game {
   }
 
   private void movePlayer(int roll) {
-    places[currentPlayer] = places[currentPlayer] + roll;
-    if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
+    places[currentPlayer] = (places[currentPlayer] + roll) % BOARD_SIZE;
 
     System.out.println(players.get(currentPlayer)
             + "'s new location is "

@@ -10,10 +10,11 @@ public class Game {
   public static final String SPORTS = "Sports";
   public static final String ROCK = "Rock";
   public static final int BOARD_SIZE = 12;
+  public static final int MAX_PLAYERS = 6;
   ArrayList players = new ArrayList();
-  int[] places = new int[6];
-  int[] purses  = new int[6];
-  boolean[] inPenaltyBox  = new boolean[6];
+  int[] places = new int[MAX_PLAYERS];
+  int[] purses  = new int[MAX_PLAYERS];
+  boolean[] inPenaltyBox  = new boolean[MAX_PLAYERS];
 
   List popQuestions = new LinkedList();
   List scienceQuestions = new LinkedList();

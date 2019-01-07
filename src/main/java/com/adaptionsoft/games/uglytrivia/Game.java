@@ -103,21 +103,12 @@ public class Game {
   }
 
   public boolean wasCorrectlyAnswered() {
-    if (inPenaltyBox[currentPlayer]) {
-      if (isGettingOutOfPenaltyBox) {
-        rewardPlayer(currentPlayer);
-
-        return didPlayerWin(currentPlayer);
-      } else {
-        return true;
-      }
-
-    } else {
-
-      rewardPlayer(currentPlayer);
-
-      return didPlayerWin(currentPlayer);
+    if (inPenaltyBox[currentPlayer] && !isGettingOutOfPenaltyBox) {
+      return true;
     }
+
+    rewardPlayer(currentPlayer);
+    return didPlayerWin(currentPlayer);
   }
 
   private void rewardPlayer(int currentPlayer) {

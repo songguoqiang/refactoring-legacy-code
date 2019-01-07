@@ -103,11 +103,11 @@ public class Game {
   }
 
   public boolean wasCorrectlyAnswered() {
-    if (inPenaltyBox[currentPlayer]){
+    if (inPenaltyBox[currentPlayer]) {
       if (isGettingOutOfPenaltyBox) {
-        rewardPlayer();
+        rewardPlayer(currentPlayer);
 
-        boolean winner = didPlayerWin();
+        boolean winner = didPlayerWin(currentPlayer);
         chooseNextPlayer();
 
         return winner;
@@ -118,16 +118,16 @@ public class Game {
 
     } else {
 
-      rewardPlayer();
+      rewardPlayer(currentPlayer);
 
-      boolean winner = didPlayerWin();
+      boolean winner = didPlayerWin(currentPlayer);
       chooseNextPlayer();
 
       return winner;
     }
   }
 
-  private void rewardPlayer() {
+  private void rewardPlayer(int currentPlayer) {
     System.out.println("Answer was correct!!!!");
     purses[currentPlayer]++;
     System.out.println(players.get(currentPlayer)
@@ -151,7 +151,7 @@ public class Game {
   }
 
 
-  private boolean didPlayerWin() {
+  private boolean didPlayerWin(int currentPlayer) {
     return !(purses[currentPlayer] == 6);
   }
 }

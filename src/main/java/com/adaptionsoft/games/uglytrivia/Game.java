@@ -33,7 +33,7 @@ public class Game {
     }
   }
 
-  public boolean add(String playerName) {
+  public void add(String playerName) {
     players.add(playerName);
     int numberOfPlayers = players.size();
 
@@ -43,7 +43,6 @@ public class Game {
 
     System.out.println(playerName + " was added");
     System.out.println("They are player number " + numberOfPlayers);
-    return true;
   }
 
   public void roll(int roll) {

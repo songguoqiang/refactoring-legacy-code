@@ -73,7 +73,9 @@ public class GameGoldenMasterTest {
         if (rand.nextInt(9) == 7) {
             return aGame.wrongAnswer();
         } else {
-            return aGame.wasCorrectlyAnswered();
+            boolean result = aGame.wasCorrectlyAnswered();
+            aGame.chooseNextPlayer();
+            return result;
         }
     }
 }

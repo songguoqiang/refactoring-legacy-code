@@ -107,12 +107,8 @@ public class Game {
       if (isGettingOutOfPenaltyBox) {
         rewardPlayer(currentPlayer);
 
-        boolean winner = didPlayerWin(currentPlayer);
-        chooseNextPlayer();
-
-        return winner;
+        return didPlayerWin(currentPlayer);
       } else {
-        chooseNextPlayer();
         return true;
       }
 
@@ -120,10 +116,7 @@ public class Game {
 
       rewardPlayer(currentPlayer);
 
-      boolean winner = didPlayerWin(currentPlayer);
-      chooseNextPlayer();
-
-      return winner;
+      return didPlayerWin(currentPlayer);
     }
   }
 
@@ -136,7 +129,7 @@ public class Game {
             + " Gold Coins.");
   }
 
-  private void chooseNextPlayer() {
+  public void chooseNextPlayer() {
     currentPlayer++;
     if (currentPlayer == players.size()) currentPlayer = 0;
   }
